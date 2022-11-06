@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
 	arg1, _ := strconv.ParseInt(os.Args[1], 10, 32)
 	ownPort := int32(arg1) + 5000
 
@@ -45,6 +44,7 @@ func main() {
 	p.clients = createClients(ownPort)
 
 	fmt.Println("Ping? Press enter")
+	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		p.SendPingToAllPeers()
 		fmt.Println("Ping? Press enter")
