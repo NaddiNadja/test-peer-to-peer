@@ -5,11 +5,8 @@ option go_package = "https://github.com/NaddiNadja/peer-to-peer;ping";
 
 
 service Ping {
-    rpc Ping (Request) returns (Empty) {}
-    rpc ReplyPing (Reply) returns (Empty) {}
+    rpc Ping (Request) returns (Reply) {}
 }
-
-message Empty {}
 
 message Request {
     int32 id = 1;
