@@ -20,16 +20,56 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Request struct {
+type Empty struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
+func (x *Empty) Reset() {
+	*x = Empty{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_grpc_interface_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Empty) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Empty) ProtoMessage() {}
+
+func (x *Empty) ProtoReflect() protoreflect.Message {
+	mi := &file_grpc_interface_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Empty.ProtoReflect.Descriptor instead.
+func (*Empty) Descriptor() ([]byte, []int) {
+	return file_grpc_interface_proto_rawDescGZIP(), []int{0}
+}
+
+type Request struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int32 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
 func (x *Request) Reset() {
 	*x = Request{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_interface_proto_msgTypes[0]
+		mi := &file_grpc_interface_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -42,7 +82,7 @@ func (x *Request) String() string {
 func (*Request) ProtoMessage() {}
 
 func (x *Request) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_interface_proto_msgTypes[0]
+	mi := &file_grpc_interface_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +95,14 @@ func (x *Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Request.ProtoReflect.Descriptor instead.
 func (*Request) Descriptor() ([]byte, []int) {
-	return file_grpc_interface_proto_rawDescGZIP(), []int{0}
+	return file_grpc_interface_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Request) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
 }
 
 type Reply struct {
@@ -69,7 +116,7 @@ type Reply struct {
 func (x *Reply) Reset() {
 	*x = Reply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_interface_proto_msgTypes[1]
+		mi := &file_grpc_interface_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -82,7 +129,7 @@ func (x *Reply) String() string {
 func (*Reply) ProtoMessage() {}
 
 func (x *Reply) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_interface_proto_msgTypes[1]
+	mi := &file_grpc_interface_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -95,7 +142,7 @@ func (x *Reply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Reply.ProtoReflect.Descriptor instead.
 func (*Reply) Descriptor() ([]byte, []int) {
-	return file_grpc_interface_proto_rawDescGZIP(), []int{1}
+	return file_grpc_interface_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Reply) GetAmount() int32 {
@@ -109,17 +156,21 @@ var File_grpc_interface_proto protoreflect.FileDescriptor
 
 var file_grpc_interface_proto_rawDesc = []byte{
 	0x0a, 0x14, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x66, 0x61, 0x63, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x70, 0x69, 0x6e, 0x67, 0x22, 0x09, 0x0a, 0x07,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x1f, 0x0a, 0x05, 0x52, 0x65, 0x70, 0x6c, 0x79,
-	0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x32, 0x2c, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67,
-	0x12, 0x24, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12, 0x0d, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52,
-	0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x42, 0x31, 0x5a, 0x2f, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3a,
-	0x2f, 0x2f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x4e, 0x61, 0x64,
-	0x64, 0x69, 0x4e, 0x61, 0x64, 0x6a, 0x61, 0x2f, 0x70, 0x65, 0x65, 0x72, 0x2d, 0x74, 0x6f, 0x2d,
-	0x70, 0x65, 0x65, 0x72, 0x3b, 0x70, 0x69, 0x6e, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x70, 0x69, 0x6e, 0x67, 0x22, 0x07, 0x0a, 0x05,
+	0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x19, 0x0a, 0x07, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64,
+	0x22, 0x1f, 0x0a, 0x05, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d, 0x6f,
+	0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
+	0x74, 0x32, 0x55, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12, 0x24, 0x0a, 0x04, 0x50, 0x69, 0x6e,
+	0x67, 0x12, 0x0d, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x0b, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x12,
+	0x27, 0x0a, 0x09, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x50, 0x69, 0x6e, 0x67, 0x12, 0x0b, 0x2e, 0x70,
+	0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x1a, 0x0b, 0x2e, 0x70, 0x69, 0x6e, 0x67,
+	0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x42, 0x31, 0x5a, 0x2f, 0x68, 0x74, 0x74, 0x70,
+	0x73, 0x3a, 0x2f, 0x2f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x4e,
+	0x61, 0x64, 0x64, 0x69, 0x4e, 0x61, 0x64, 0x6a, 0x61, 0x2f, 0x70, 0x65, 0x65, 0x72, 0x2d, 0x74,
+	0x6f, 0x2d, 0x70, 0x65, 0x65, 0x72, 0x3b, 0x70, 0x69, 0x6e, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -134,16 +185,19 @@ func file_grpc_interface_proto_rawDescGZIP() []byte {
 	return file_grpc_interface_proto_rawDescData
 }
 
-var file_grpc_interface_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_grpc_interface_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_grpc_interface_proto_goTypes = []interface{}{
-	(*Request)(nil), // 0: ping.Request
-	(*Reply)(nil),   // 1: ping.Reply
+	(*Empty)(nil),   // 0: ping.Empty
+	(*Request)(nil), // 1: ping.Request
+	(*Reply)(nil),   // 2: ping.Reply
 }
 var file_grpc_interface_proto_depIdxs = []int32{
-	0, // 0: ping.Ping.Ping:input_type -> ping.Request
-	1, // 1: ping.Ping.Ping:output_type -> ping.Reply
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	1, // 0: ping.Ping.Ping:input_type -> ping.Request
+	2, // 1: ping.Ping.ReplyPing:input_type -> ping.Reply
+	0, // 2: ping.Ping.Ping:output_type -> ping.Empty
+	0, // 3: ping.Ping.ReplyPing:output_type -> ping.Empty
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -156,7 +210,7 @@ func file_grpc_interface_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_grpc_interface_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Request); i {
+			switch v := v.(*Empty); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -168,6 +222,18 @@ func file_grpc_interface_proto_init() {
 			}
 		}
 		file_grpc_interface_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Request); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_grpc_interface_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Reply); i {
 			case 0:
 				return &v.state
@@ -186,7 +252,7 @@ func file_grpc_interface_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_grpc_interface_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
